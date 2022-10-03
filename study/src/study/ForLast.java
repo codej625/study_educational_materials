@@ -1,9 +1,9 @@
 package study;
 
-public class Test {
-	
+public class ForLast {
+
 	public static void main(String[] args) {
-		
+
 		/**
 		 * 1. 한가지의 변수와 세 가지의 배열을 사용하여 아래와 같이 콘솔 창에 출력되게 만드시오.
 		 * =================
@@ -67,7 +67,6 @@ public class Test {
 			}
 			System.out.println();
 		}
-
 		
 	}
 
