@@ -1,4 +1,4 @@
-# 스터디 주제 "HTML, CSS, IT 배경지식"
+# 스터디 주제 "HTML, CSS"
 
 <br /><br />
 
