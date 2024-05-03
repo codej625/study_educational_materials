@@ -1,6 +1,6 @@
 # 이재웅, 이용수 스터디
 
-<br />
+<br /><br />
 
 1. 목표
 ```
@@ -18,10 +18,11 @@
 
 1. Javascript
 2. Node.js(Express)
-3. SQL & Database(PostgreSQL)
+3. Database(MySQL or PostgreSQL), SQL
 ```
 
-<br />
+<br /><br /><br />
+
 
 2. 공통 스터디 사항
 ```
