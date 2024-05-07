@@ -85,21 +85,75 @@ HTML 시맨틱 태그는 문서의 구조와 의미를 더 명확하게 표현�
 
 * CSS
 ```
-
+CSS는 Cascading Style Sheets의 약자로,
+웹 페이지의 디자인과 레이아웃을 정의하기 위한 스타일 시트 언어이다.
+HTML이 웹 페이지의 구조를 정의하는 데 사용되는 반면, CSS는 그 구조에 스타일을 적용하여 시각적인 디자인을 만든다.
+CSS를 사용하면 텍스트의 색상, 폰트, 크기, 배치, 여백 등을 제어할 수 있다.
+또한 CSS를 사용하여 배경 이미지, 그림자 효과, 애니메이션 등의 요소도 추가할 수 있다.
 ```
 
 <br /><br />
 
-1. 
+* CSS 적용
 ```
-
+HTML에 CSS를 적용하는 방법은 크게 3가지가 있다.
+예시를 보면서 알아보자.
 ```
 
 <br />
 
-2. 
+1. Inline CSS
+```
+HTML 태그에 Inline 방식으로 직접 적용하는 것을 말한다.
+```
+```html
+<div style="color: red; font-size: 16px;">이 텍스트는 빨간색이고 글꼴 크기는 16px입니다.</div>
 ```
 
+<br />
+
+2. Internal CSS
+```
+HTML 문서 내에 <style> 태그를 사용하여 CSS를 포함시키는 것을 말한다.
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal CSS</title>
+  <style>
+    p {
+      color: blue;
+      font-size: 14px;
+    }
+  </style>
+</head>
+```
+
+<br />
+
+3. External CSS
+```
+외부 CSS 파일을 HTML 문서에 링크하여 사용하는 것을 말한다.
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>External CSS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+```
+```css
+/* styles.css */
+p {
+  color: green;
+  font-size: 18px;
+}
 ```
 
 <br /><br /><br />
