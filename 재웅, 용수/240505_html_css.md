@@ -193,11 +193,9 @@ CSR은 사용자 경험을 향상시키고 SPA(Single Page Application)를 구�
 2. CSS를 사용하여 첫번째 div는 solid, 1px, 색상은 red로 만들고
    두번째 div는 나머지는 같고 색상만 blue로 만든다.
    (CSS파일은 별도로 만들고 HTML에서 link태그를 사용해 불러온다.)
-3. div 요소를 나란히 배치한다.
-
-* 밑에는 정답 이미지이다.
+3. div 요소를 나란히 배치한다. (50대 50비율)
 ```
 
 <br />
 
-<img src="" />
+<a href="https://github.com/codej625/study_educational_materials/blob/main/%EC%9E%AC%EC%9B%85%2C%20%EC%9A%A9%EC%88%98/240508_homework.png">정답 이미지</a>
