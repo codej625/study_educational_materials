@@ -198,4 +198,4 @@ CSR은 사용자 경험을 향상시키고 SPA(Single Page Application)를 구�
 
 <br />
 
-<a href="https://github.com/codej625/study_educational_materials/blob/main/%EC%9E%AC%EC%9B%85%2C%20%EC%9A%A9%EC%88%98/240508_homework.png">정답 이미지</a>
+<a href="https://github.com/codej625/study_educational_materials/blob/main/%EC%9E%AC%EC%9B%85%2C%20%EC%9A%A9%EC%88%98/240508_homework_image.png">정답 이미지</a>
