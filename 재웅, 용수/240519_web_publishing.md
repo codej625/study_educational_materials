@@ -124,3 +124,14 @@ top, right, bottom, left 속성을 사용하여 이동할 거리를 지정할 �
 요소를 일반적인 문서 흐름에 따라 배치하지만,
 스크롤되는 상황에서 특정 위치에 고정시킬 수 있습니다.
 ```
+
+<br /><br /><br />
+
+* 숙제
+```
+header 맨 윗부분 구현
+```
+
+<br />
+
+<a href="https://github.com/codej625/study_educational_materials/blob/main/%EC%9E%AC%EC%9B%85%2C%20%EC%9A%A9%EC%88%98/240519_homework_image.png">이미지 확인</a>
