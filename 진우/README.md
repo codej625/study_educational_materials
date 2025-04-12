@@ -47,16 +47,17 @@ OS: Linux, macOS, Windows 11
 OS는 Ubuntu(Linux)를 사용하고,
 DB(PostgreSQL), WAS(Nest), Web Server(Nginx)를 사용한다.
 
-(Docker를 사용해서 컨테이너로 관리)
+DB는 이미지로 미리 서버에 컨테이너로 띄어놓고,
+앱서버는 gitHub와 Jenkins를 사용해서 빌드하고 관리한다.
 ```
 
 ```
 1. Ubuntu 버전은 20.04 LTS이다.
 
 2. macOS에서는 터미널을 열고, 
-   ssh ubuntu@192.168.140.139 이렇게 접속한다. (비번은 비밀)
+   ssh ubuntu@192.168.140.139 이렇게 접속한다. (비번은 12341234aA! 어차피 VPN 없으면 접속 X)
 
-3. 컨테이너 관리를 위해 Docker를 설치한다.
+3. 컨테이너 관리를 위해 Docker, Jenkins를 설치한다.
 ```
 
 ```
@@ -126,4 +127,22 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 
 12. 혹시나 뭔가 위의 과정이 망했다면, docker rm <my-container> 명령어로 컨테이너를 삭제한다.
     (docker volume rm my-removable-volume 이건 볼륨 삭제 커맨드이다.)
+```
+
+```
+13. Jenkins를 설치하기 위해선 JDK가 필요하다.
+    sudo apt update
+    sudo apt install openjdk-17-jdk // LTS 버전으로 설치한다.
+    sudo apt install openjdk-17-jre // 혹은 런타임만 깔아도 문제 없다.
+    (JAVA_HOME을 꼭 확인해야 한다.)
+
+14. Jenkins 공식 저장소 추가 및 Jenkins 설치
+    https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+    위의 주소를 참고하는 게 AI에 물어보는 것보다 정확하다.
+
+15. sudo systemctl status jenkins // Jenkins가 잘 설치되었는지 확인
+
+16. Jenkins 기본 포트 허용하기
+    sudo ufw allow 8080
+    sudo ufw enable
 ```
