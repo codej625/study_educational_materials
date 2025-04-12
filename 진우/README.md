@@ -145,4 +145,12 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 16. Jenkins 기본 포트 허용하기
     sudo ufw allow 8080
     sudo ufw enable
+    your-ubuntu-ip:your-jenkins-port/pluginManager/available 접속한다.
+
+17. Jenkins 초기 비밀번호 확인
+    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+    비밀번호를 확인하고 이후 비밀번호를 변경한다.
+
+18. GitHub 연동을 위해 플러그인을 설치한다.
+    GitHub Integration 을 검색하고 설치
 ```
