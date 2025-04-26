@@ -154,3 +154,123 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 18. GitHub 연동을 위해 플러그인을 설치한다.
     GitHub Integration 을 검색하고 설치
 ```
+
+<br />
+<br />
+<br />
+
+3. 테스트 1-2
+
+```
+Nest.js에는 Prisma라는 강력한 ORM이 있다.
+
+세팅을 해보자.
+```
+
+```npm
+// 프로젝트 루트 폴더에서 실행 (NPM)
+npm install prisma --save-dev
+npm install @prisma/client
+
+or
+
+# (Yarn)
+yarn add prisma --save-dev
+yarn add @prisma/client
+```
+
+```npm
+npx prisma init
+
+// 또는 yarn 사용 시
+// yarn prisma init
+```
+
+<br />
+
+`.env 파일 설정`
+
+```
+생성된 .env 파일에 데이터베이스 연결 URL을 입력한다. 
+
+prisma init 실행 시 어떤 데이터베이스를 사용할지 선택했다면, 
+해당 데이터베이스의 기본 URL 형식이 주석으로 제공된다. 
+
+PostgreSQL 예시는 다음과 같다.
+```
+
+```
+DATABASE_URL="postgresql://username:password@host:port/database?schema=public"
+```
+
+<br />
+
+`prisma 파일 설정`
+
+```
+생성된 schema.prisma 파일에서 datasource 블록의 provider가 사용하려는 데이터베이스에 맞게 설정되어 있는지 확인한다. 
+
+PostgreSQL의 경우 provider = "postgresql"로 되어 있어야 한다.
+```
+
+```
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql" // PostgreSQL 사용 시 확인
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  // previewFeatures = ["extendedWhereUnique"] // 필요한 경우 preview 기능 추가
+}
+
+// 여기에 데이터 모델을 정의한다. (다음 단계에서 설명)
+```
+
+```
+// prisma/schema.prisma
+
+// ... (datasource 및 generator 블록)
+
+model User {
+  id        Int       @id @default(autoincrement()) // 기본 키, 자동 증가
+  email     String    @unique // 이메일 필드, 유니크 제약 조건
+  name      String?   // 문자열 필드, null 허용 (?)
+  password  String
+  createdAt DateTime  @default(now()) // 생성 시간, 기본값은 현재 시간
+  updatedAt DateTime  @updatedAt // 업데이트 시간, 데이터 수정 시 자동 업데이트
+  posts     Post[]    // User와 Post 간의 1 대 다 관계 (User 하나가 여러 Post를 가짐)
+}
+
+model Post {
+  id        Int       @id @default(autoincrement())
+  title     String    @db.VarChar(255) // 필드 타입 및 데이터베이스 컬럼 타입 지정
+  content   String?
+  published Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  author    User      @relation(fields: [authorId], references: [id]) // Post와 User 간의 다 대 1 관계
+  authorId  Int       // User 모델과의 관계를 위한 외래 키 필드
+}
+```
+
+```
+스키마 파일을 변경하거나 처음 정의했다면, 
+npx prisma migrate dev 명령어를 실행하여 데이터베이스에 스키마 변경 내용을 반영하고 Prisma Client 코드를 재생성해야 한다.
+```
+
+```
+npx prisma migrate dev --name initial_setup
+```
+
+```
+// 에러가 난다면?
+
+# Prisma 캐시 삭제
+npx prisma cache clean
+
+# 다시 마이그레이션 실행
+npx prisma migrate dev --name add_user_model
+```
